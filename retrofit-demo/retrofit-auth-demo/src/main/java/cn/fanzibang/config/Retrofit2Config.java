@@ -12,7 +12,7 @@ public class Retrofit2Config {
     @Bean
     public Retrofit retrofit() {
         return new Retrofit.Builder()
-                .baseUrl("https://localhost:8080/")
+                .baseUrl("http://localhost:8080/")
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
     }

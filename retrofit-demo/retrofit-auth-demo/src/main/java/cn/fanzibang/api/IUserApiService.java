@@ -4,22 +4,29 @@ import cn.fanzibang.entity.User;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IUserApiService {
 
     /**
-     * 查询店铺列表
+     * 查询用户列表
      * @return
      */
-    @GET("shops/list")
-    Call<List<User>> listShops();
+    @GET("/users")
+    Call<List<User>> listUsers(@Query("pageNo") Integer pageNo, @Query("pageSize") Integer pageSize);
+
+    @GET("/users")
+    Call<List<User>> listUsersByQueryMap(@QueryMap Map<String, String> page);
 
     /**
-     * 根据店铺id查询店铺详情
+     * 根据用户id查询用户详情
      */
-    @GET("shop/{shopId}")
-    Call<User> getShopById(@Path("shopId") String shopId);
+    @GET("/user/{userId}")
+    Call<User> getUserById(@Path("userId") String userId);
+
 
 }

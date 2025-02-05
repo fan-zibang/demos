@@ -8,10 +8,26 @@ public class User {
 
     private String sex;
 
-    public User(String userId, String userName, String sex) {
+    private String mobile;
+
+    public User() {
+    }
+
+    public User(String userId, String userName, String sex, String mobile) {
         this.userId = userId;
         this.userName = userName;
         this.sex = sex;
+        this.mobile = mobile;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId='" + userId + '\'' +
+                ", userName='" + userName + '\'' +
+                ", sex='" + sex + '\'' +
+                ", mobile='" + mobile + '\'' +
+                '}';
     }
 
     public String getUserId() {
@@ -38,12 +54,11 @@ public class User {
         this.sex = sex;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId='" + userId + '\'' +
-                ", userName='" + userName + '\'' +
-                ", sex='" + sex + '\'' +
-                '}';
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 }
