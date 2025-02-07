@@ -36,4 +36,8 @@ public class UserService {
                 new User("2", "XiaoHong", "女", "12345678901")
         );
     }
+
+    public void updateUser(String userId, String sex, String mobile) {
+        log.info("userId:{}, sex:{}, mobile:{}", userId, sex, mobile);
+    }
 }

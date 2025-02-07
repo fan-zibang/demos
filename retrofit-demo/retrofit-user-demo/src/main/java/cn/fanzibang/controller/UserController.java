@@ -24,4 +24,14 @@ public class UserController {
         return userService.listUsers(pageNo, pageSize);
     }
 
+    @PostMapping("/user")
+    public Boolean addUser(@RequestBody User user) {
+        return userService.addUser(user);
+    }
+
+    @PutMapping("/user/{userId}")
+    public void updateUser(@PathVariable("userId") String userId, String sex, String mobile) {
+        userService.updateUser(userId, sex, mobile);
+    }
+
 }

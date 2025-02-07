@@ -2,10 +2,7 @@ package cn.fanzibang.api;
 
 import cn.fanzibang.entity.User;
 import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Path;
-import retrofit2.http.Query;
-import retrofit2.http.QueryMap;
+import retrofit2.http.*;
 
 import java.util.List;
 import java.util.Map;
@@ -28,5 +25,11 @@ public interface IUserApiService {
     @GET("/user/{userId}")
     Call<User> getUserById(@Path("userId") String userId);
 
+    @POST("/user")
+    Call<Boolean> addUser(@Body User user);
+
+    @FormUrlEncoded
+    @PUT("user/{userId}")
+    Call<Void> updateUser(@Path("userId") String userId, @Field("sex") String sex, @Field("mobile") String mobile);
 
 }

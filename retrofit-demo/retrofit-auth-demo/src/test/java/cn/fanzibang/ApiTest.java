@@ -26,7 +26,7 @@ public class ApiTest {
     private IUserApiService userApiService;
 
     @Test
-    public void test_url_manipulation_path() throws IOException {
+    public void test_url_manipulation_path_ano() throws IOException {
         // 省略校验...
         // 从 token 取出用户id，根据用户id查询用户详情
         Call<User> userCall = userApiService.getUserById("1");
@@ -35,7 +35,7 @@ public class ApiTest {
     }
 
     @Test
-    public void test_url_manipulation_query() throws IOException {
+    public void test_url_manipulation_query_ano() throws IOException {
         // 省略校验...
         // 从 token 取出用户id，根据用户id查询用户详情
         Call<List<User>> userCall = userApiService.listUsers(2, 10);
@@ -45,7 +45,7 @@ public class ApiTest {
     }
 
     @Test
-    public void test_url_manipulation_query_map() throws IOException {
+    public void test_url_manipulation_query_map_ano() throws IOException {
         // 省略校验...
         // 从 token 取出用户id，根据用户id查询用户详情
         Map<String, String> map = new HashMap<>();
@@ -55,6 +55,20 @@ public class ApiTest {
         List<User> userList = userCall.execute().body();
         assert userList != null;
         log.info("userList size:{}", userList.size());
+    }
+
+    @Test
+    public void test_body_ano() throws IOException {
+        User user = new User("1", "XiaoMing", "男", "12345678900");
+        Call<Boolean> success = userApiService.addUser(user);
+        log.info("success: {}", success.execute().body());
+    }
+
+    @Test
+    public void test_field_ano() throws IOException {
+        Call<Void> call = userApiService.updateUser("1","女", "12345678912");
+        int code = call.execute().code();
+        log.info("http code: {}", code);
     }
 
 }
