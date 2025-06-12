@@ -31,14 +31,14 @@
         </sequenceFlow>
 
         <serviceTask id="addLeaveRecord" name="记录一条请假记录到系统"
-                     flowable:class="com.benjaminfan.flowable.AddLeaveRecordDelegate"/>
+                     flowable:class="com.fanzibang.flowable.AddLeaveRecordDelegate"/>
         <sequenceFlow sourceRef="addLeaveRecord" targetRef="leaveApprovedTask"/>
 
         <userTask id="leaveApprovedTask" name="请假批准" flowable:assignee="${employee}"/>
         <sequenceFlow sourceRef="leaveApprovedTask" targetRef="approveEnd"/>
 
         <serviceTask id="sendRejectionMail" name="发送拒绝请假邮件"
-                     flowable:class="com.benjaminfan.flowable.SendRejectionMail"/>
+                     flowable:class="com.fanzibang.flowable.SendRejectionMail"/>
         <sequenceFlow sourceRef="sendRejectionMail" targetRef="rejectEnd"/>
 
         <endEvent id="approveEnd"/>

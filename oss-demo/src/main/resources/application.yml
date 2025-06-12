@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+oss:
+  adapter-type: aliyun
+  client:
+    aliyun:
+      host: xxx
+      accessKey: xxx
+      secretKey: xxx
+      region: xxx
+      bucket: xxx
+    tencent:
+      host: xxx
+      accessKey: xxx
+      secretKey: xxx
+      region: xxx
+      bucket: xxx
